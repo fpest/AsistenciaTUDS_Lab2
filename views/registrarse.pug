@@ -1,0 +1,69 @@
+
+extends layout
+block content
+
+    html 
+
+        head 
+        body
+
+            div(class='divtodo')
+                h1 Registro de Usuario
+               
+                if (error) 
+                    h3= 'Usuario Existente' 
+                
+                form(action="/usuarios/insertarRegistro", method="post", id="formulario")
+                
+
+                    
+                    input(type="text", id="nombre", name="nombre", required)
+                    label :Nombre
+                    br
+                    
+                    input(type="text", id="apellido", name="apellido", required)
+                    label :Apellido
+                    br
+                
+                    input(type="text", id="dni", name="dni", required)
+                    label :DNI
+                    br
+
+                    input(type="email", id="eMail", name="eMail", required)
+                    label :Usuario *
+                    br
+                
+                    input(type="password", id="pss", name="pss", required)
+                    label :Password 
+                                   
+                    p * Usuario: Debe ser un email!
+                    br
+                
+                    input(class="boton", type="submit", value="Registrar")
+
+                    br
+                    br
+
+                form(id="formuIns")
+
+                    input(class="botonLO", type="button", value="Salir", name="salir" onclick="salirRegistro()")  
+            
+
+
+
+        script.
+            function salirRegistro(){
+                console.log("salir")
+                const form = document.getElementById('formuIns');
+                form.setAttribute('method', 'get');
+                form.setAttribute('action','../login/logout');
+
+                form.submit();
+            }
+
+            function error(){
+                console.log("error")
+                alert("Error")
+            }
+
+            

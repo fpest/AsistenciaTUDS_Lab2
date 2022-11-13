@@ -1,0 +1,14 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    script(src='http://code.jquery.com/jquery.js')
+    script(src='https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js')
+    link(rel='stylesheet', href='//cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css')
+
+
+  body
+    block content
+      if (error)
+        h1 error

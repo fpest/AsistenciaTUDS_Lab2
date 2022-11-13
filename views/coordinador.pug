@@ -1,0 +1,98 @@
+
+extends layout
+block content
+
+    html 
+
+        head 
+        body
+                
+                - listaP = listaProfesores
+                - listaM = materias
+                - usuario = user
+
+
+                H2= `Bienvenido ${user.nombre} (${user.rol})` 
+                div(class='dropdown')
+                    button(class='dropbtn') Materias
+        
+                        div(class="dropdown-content")
+                            a(href='/materias/antesinsertar') Alta
+                                 
+                div(class='dropdown1')            
+                 button(class='dropbtn1') Profesores
+                 
+                        div(class="dropdown-content1")
+                            a(href="#") Alta
+                     
+                div(class='dropdown3')            
+                 button(class='dropbtn3') Informes
+                 
+                        div(class="dropdown-content3")
+                            a(href="#") Asistencias
+                
+                div(class='dropdown2')            
+                 button(class='dropbtn2') Salir
+                 
+                        div(class="dropdown-content2")
+                            a(href='/login/logout') Logout
+
+
+       
+                Br
+                Br
+                H2 Profesores
+                form(id="formuP")  
+                    table(id='myTable', border='1')     
+                        thead 
+                            tr
+                                th(style='width:80px') Legajo
+                                th(style='width:250px') Nombre 
+                                th(style='width:100px') DNI
+                                th(style='width:250px') eMail 
+                                th(style='width:80px') Borrar
+                                th(style='width:80px') Editar
+                        tbody
+                          if (listaP)      
+                            each p in listaP
+                                tr
+                                    td #{p.legajo}
+                                    td #{p.apellido+", "+p.nombre}
+                                    td #{p.dni}
+                                    td #{p.eMail}
+                                    td 
+                                        a(href=`/items/borrar/${p.id}`)= "Borrar"
+                                    td 
+                                        a(href=`/items/editar/${p.id}`)= "Editar"  
+                        br
+
+                H2 Materias
+                form(id="formuM")  
+                    table(id='myTable', border='1')     
+                        thead 
+                            tr
+                                th(style='width:250px') Materia 
+                                th(style='width:100px') C.Lectivo
+                                th(style='width:120px') F.Inicio
+                                th(style='width:120px') F.Fin
+                                th(style='width:80px') Borrar
+                                th(style='width:80px') Editar
+                        tbody
+                          if (listaM)      
+                            each m in listaM
+                                tr
+                                    td #{m.nombre}
+                                    td #{m.cicloLectivo}
+                                    td #{m.fechaInicioCursada}
+                                    td #{m.fechaFinCursada}
+                                    td 
+                                        a(href=`/items/borrar/${m.idMateria}`)= "Borrar"
+                                    td 
+                                        a(href=`/items/editar/${m.idMateria}`)= "Editar"  
+                        br
+
+
+
+           
+          
+    

@@ -1,0 +1,224 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+th {
+  background-color: #00B7FF;
+  color: whitesmoke;
+}
+
+.boton {
+  background-color: #00B7FF;
+  width: 150px;
+  height: 40px;
+  margin: 10px;
+}
+
+.botonLO {
+  background-color: rgb(160, 123, 95);
+  width: 150px;
+  height: 40px;
+  margin: 10px;
+}
+
+.divtodo {
+  border: 2px solid black;
+  padding: 15px;
+  width: 300px;
+  background-color: aliceblue;
+
+}
+
+h1 {
+
+  border-radius: 5%;
+  padding : 5px;
+  border: 3px solid cornflowerblue;
+  width: 280px;
+  height: 70px;
+  background-color: #00B7FF;
+  color:azure;
+  text-align: center;
+}
+
+
+/* Nav Bar */
+
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+.dropdown1 {
+  float: left;
+  overflow: hidden;
+}
+.dropdown2 {
+  float: left;
+  overflow: hidden;
+}
+.dropdown3 {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: cornflowerblue;
+  font-family: inherit; 
+  margin: 0;
+}
+.dropdown1 .dropbtn1 {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: cornflowerblue;
+  font-family: inherit; 
+  margin: 0;
+}
+.dropdown2 .dropbtn2 {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: cornflowerblue;
+  font-family: inherit; 
+  margin: 0;
+}
+.dropdown3 .dropbtn3 {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: cornflowerblue;
+  font-family: inherit; 
+  margin: 0;
+}
+
+
+.dropbtn:hover  {
+  background-color: #00B7FF;
+  overflow: hidden;
+}
+.dropbtn1:hover {
+  background-color: #00B7FF;
+  overflow: hidden;
+}
+.dropbtn2:hover {
+  background-color: #00B7FF;
+  overflow: hidden;
+}
+.dropbtn3:hover {
+  background-color: #00B7FF;
+  overflow: hidden;
+}
+
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+.dropdown-content1 {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+.dropdown-content2 {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+.dropdown-content3 {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+.dropdown-content1 a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+.dropdown-content2 a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+.dropdown-content3 a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+.dropdown-content1 a:hover {
+  background-color: #ddd;
+}
+.dropdown-content2 a:hover {
+  background-color: #ddd;
+}
+.dropdown-content3 a:hover {
+  background-color: #ddd;
+}
+
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.dropdown1:hover .dropdown-content1 {
+  display: block;
+}
+.dropdown2:hover .dropdown-content2 {
+  display: block;
+}
+.dropdown3:hover .dropdown-content3 {
+  display: block;
+}

@@ -1,0 +1,104 @@
+
+extends layout
+block content
+
+    html 
+
+        head 
+        body
+                - fechahoy = hoy
+                if (mensaje)
+                    - mensajeRegistro = mensaje 
+                else 
+                    - mensajeRegistro = ""
+                
+                div(class='dropdown')
+                    button(class='dropbtn') Materias
+        
+                        div(class="dropdown-content")
+                            a(href='/materias/antesInsertar') Alta
+            
+                div(class='dropdown1')            
+                 button(class='dropbtn1') Profesores
+                 
+                        div(class="dropdown-content1")
+                            a(href="#") Alta
+            
+                div(class='dropdown3')            
+                 button(class='dropbtn3') Informes
+                 
+                        div(class="dropdown-content3")
+                            a(href="#") Asistencias
+                
+                div(class='dropdown2')            
+                 button(class='dropbtn2') Salir
+                 
+                        div(class="dropdown-content2")
+                            a(href='/coordinadores/principalCoordinadores') Volver
+                            a(href='/login/logout') Logout
+                           
+        Br
+        Br
+
+                H2 Alta de Materias 
+                    
+                h3=mensajeRegistro
+
+                form(action='/materias/insertarRegistroMateria', method="post", id="formulario")
+                
+
+                    
+                    input(type="text", id="nombre", name="nombre", required)
+                    label :Nombre
+                    br
+                    br
+                    
+                    input(type="number", id="cicloLectivo", name="cicloLectivo", required)
+                    label :Ciclo Lectivo
+                    br
+                    br
+                
+                    input(type="date", id="fechaInicioCursada", name="fechaInicioCursada", value= `${fechahoy}`, required)
+                    label :Fecha Inicio Cursada
+                    br
+                    br
+
+                    input(type="date", id="fechaFinCursada", name="fechaFinCursada", value= `${fechahoy}`, required)
+                    label :Fecha Fin Cursada
+                    br
+                    br
+                
+                             
+                    input(class="boton", type="submit", value="Registrar")
+
+                    br
+                    br
+
+                form(id="formuIns")
+
+                    input(class="botonLO", type="button", value="Salir", name="salir" onclick="salirRegistro()")  
+            
+
+
+
+        script.
+            function salirRegistro(){
+                console.log("salir")
+                const form = document.getElementById('formuIns');
+                form.setAttribute('method', 'get');
+                form.setAttribute('action','../login/logout');
+
+                form.submit();
+            }
+
+            function error(){
+                console.log("error")
+                alert("Error")
+            }
+
+            
+
+     
+           
+          
+    

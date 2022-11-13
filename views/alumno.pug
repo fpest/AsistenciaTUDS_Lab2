@@ -1,0 +1,72 @@
+
+extends layout
+block content
+
+    html 
+
+        head 
+        body
+
+              
+                - listaM = materias    
+                - usuario = user
+
+
+                H2= `Bienvenido ${user.nombre} (${user.rol})` 
+
+
+                div(class='dropdown')
+                    button(class='dropbtn') Perfil
+        
+                        div(class="dropdown-content")
+                            a(href='/materias/antesinsertar') Editar
+                                 
+                div(class='dropdown1')            
+                 button(class='dropbtn1') Materias
+                 
+                        div(class="dropdown-content1")
+                            a(href="#") Horario
+                     
+                div(class='dropdown3')            
+                 button(class='dropbtn3') Asistencia
+                 
+                        div(class="dropdown-content3")
+                            a(href="#") Registrar Asistencia
+                
+                div(class='dropdown2')            
+                 button(class='dropbtn2') Salir
+                 
+                        div(class="dropdown-content2")
+                            a(href='/login/logout') Logout
+
+
+       
+                Br
+                Br
+         
+                H2 Materias
+                form(id="formuM")  
+                    table(id='myTable', border='1')     
+                        thead 
+                            tr
+                                th(style='width:250px') Materia 
+                                th(style='width:100px') C.Lectivo
+                                th(style='width:120px') F.Inicio
+                                th(style='width:120px') F.Fin
+                         
+                        tbody
+                          if (listaM)      
+                            each m in listaM
+                                tr
+                                    td #{m.nombre}
+                                    td #{m.cicloLectivo}
+                                    td #{m.fechaInicioCursada}
+                                    td #{m.fechaFinCursada}
+              
+                        br
+
+
+
+           
+          
+    

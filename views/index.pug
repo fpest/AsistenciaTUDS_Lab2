@@ -1,0 +1,29 @@
+extends layout
+block content
+  div(class='divtodo')
+    h1= 'ASISTENCIA (TUDS) CLASES ONLINE'
+    h1= 'LOGIN'
+    br
+    
+    if (mensaje) 
+      h3=mensaje
+    
+
+    form(action="/login/login", method="post", id="formulario")
+      p= 'Usuario:'
+      input(type="email", id="eMail", name="eMail")
+      p= 'Password:'
+      input(type="password", id="password", name="password")
+      br
+      br
+      input(type="submit", value="Entrar")
+      br
+      br
+      
+      a(href="/usuarios/registrarse")= "Registrarse"  
+ 
+
+
+    
+ 
+
