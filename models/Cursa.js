@@ -20,7 +20,7 @@ class Cursa extends Model {
         type: DataTypes.INTEGER,
     },
     validado: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
     }},{    
       sequelize,
       timestamp : true,

@@ -23,7 +23,7 @@ block content
                  button(class='dropbtn1') Profesores
                  
                         div(class="dropdown-content1")
-                            a(href="#") Alta
+                            a(href='/profesores/antesinsertar') Alta
                      
                 div(class='dropdown3')            
                  button(class='dropbtn3') Informes
@@ -61,9 +61,9 @@ block content
                                     td #{p.dni}
                                     td #{p.eMail}
                                     td 
-                                        a(href=`/items/borrar/${p.id}`)= "Borrar"
+                                        a(href=`/profesores/antesborrar/${p.legajo}`)= "Borrar"
                                     td 
-                                        a(href=`/items/editar/${p.id}`)= "Editar"  
+                                        a(href=`/profesores/anteseditar/${p.legajo}`)= "Editar"  
                         br
 
                 H2 Materias

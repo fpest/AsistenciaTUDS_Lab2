@@ -1,0 +1,148 @@
+
+extends layout
+block content
+
+    html 
+
+        head 
+        body
+                - fechahoy = hoy
+                - usuario = user
+                - profesor = profesorEditar
+                - listaM = materias
+                - listaD = listadicta
+                - listaDV = listadictaview
+
+               
+
+                if (mensaje)
+                    - mensajeRegistro = mensaje 
+                else 
+                    - mensajeRegistro = ""
+                
+
+                H2= `Bienvenido ${user.nombre} (${user.rol})` 
+                div(class='dropdown')
+                    button(class='dropbtn') Materias
+        
+                        div(class="dropdown-content")
+                            a(href='/materias/antesInsertar') Alta
+            
+                div(class='dropdown1')            
+                 button(class='dropbtn1') Profesores
+                 
+                        div(class="dropdown-content1")
+                            a(href="#") Alta
+            
+                div(class='dropdown3')            
+                 button(class='dropbtn3') Informes
+                 
+                        div(class="dropdown-content3")
+                            a(href="#") Asistencias
+                
+                div(class='dropdown2')            
+                 button(class='dropbtn2') Salir
+                 
+                        div(class="dropdown-content2")
+                            a(href='/coordinadores/principalCoordinadores') Volver
+                            a(href='/login/logout') Logout
+                           
+        Br
+        Br
+
+                H2 Editar Profesor
+                    
+                h3=mensajeRegistro
+
+                form(action='/profesores/insertarRegistroProfesor', method="post", id="formulario")
+
+
+                    input(type="text", id="nombre", name="nombre", value=`${profesor.nombre}`,  readonly)
+                    label :Nombre
+                    br
+                    
+                    input(type="text", id="apellido", name="apellido", value=`${profesor.apellido}`,  readonly)
+                    label :Apellido
+                    br
+                
+                    input(type="text", id="dni", name="dni", value=`${profesor.dni}`,  readonly)
+                    label :DNI
+                    br
+
+                    input(type="email", id="eMail", name="eMail", value=`${profesor.eMail}`,  readonly)
+                    label :Usuario
+                                                  
+                    br
+                    br
+
+                    H2 Materias
+                    form(id="formuM")  
+                      table(id='myTable', border='1')     
+                        thead 
+                            tr
+                                th(style='width:250px') Materia 
+                                th(style='width:100px') C.Lectivo
+                                th(style='width:120px') F.Inicio
+                                th(style='width:120px') F.Fin
+                                th(style='width:80px') A Cargo
+                                th(style='width:150px') Vincular/Desvincular
+                        tbody
+                          if (listaDV)      
+                            each m in listaDV
+                                tr
+                                    td #{m.nombre}
+                                    td #{m.cicloLectivo}
+                                    td #{m.fechaInicioCursada}
+                                    td #{m.fechaFinCursada}
+                                    td  
+                                        if `${m.acargo}`=="true"
+                                            - chek = true
+                                        else 
+                                            - chek = false                                              
+                                        input(type="checkbox" checked= chek disabled)
+                                    td 
+                                        a(href=`/dicta/acargo/${m.idMateria}/${profesor.id}/${m.acargo}`) Vincular/Desvincular
+                                        
+                                   
+                    br
+
+        script.
+            function salirRegistro(){
+                console.log("salir")
+                const form = document.getElementById('formuIns');
+                form.setAttribute('method', 'get');
+                form.setAttribute('action','../coordinadores/principalCoordinadores');
+
+                form.submit();
+            }
+
+            function error(){
+                console.log("error")
+                alert("Error")
+            }
+
+            function checkcargo(id, checked){
+                
+               
+                alert("kkdkddkk" +  id + checked)
+
+
+                /*
+                 const form = document.getElementById('formuM');
+                
+                
+                //form.setAttribute('method', 'get');
+                
+                form.setAttribute('action','../dicta/acargo/' + id);
+                
+                form.submit();
+
+                */
+            }
+
+            
+
+     
+           
+          
+    

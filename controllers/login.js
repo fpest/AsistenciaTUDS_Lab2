@@ -51,7 +51,7 @@ exports.login = async function (req, res) {
       const rol = user.rol
      // req.session.usuarioPerfil = user.perfil;
       req.session.mensaje = "Todo Perfecto";
-      console.log("Rol: " + rol)
+      
       switch (rol){
         case 'Coordinador':
           return res.redirect("/coordinadores/principalCoordinadores");

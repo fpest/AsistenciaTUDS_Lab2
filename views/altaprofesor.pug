@@ -7,11 +7,14 @@ block content
         head 
         body
                 - fechahoy = hoy
+                - usuario = user
                 if (mensaje)
                     - mensajeRegistro = mensaje 
                 else 
                     - mensajeRegistro = ""
                 
+
+                H2= `Bienvenido ${user.nombre} (${user.rol})` 
                 div(class='dropdown')
                     button(class='dropbtn') Materias
         
@@ -40,39 +43,42 @@ block content
         Br
         Br
 
-                H2 Alta de Materias 
+                H2 Alta de Profesor
                     
                 h3=mensajeRegistro
 
-                form(action='/materias/insertarRegistroMateria', method="post", id="formulario")
-                
+                form(action='/profesores/insertarRegistroProfesor', method="post", id="formulario")
 
-                    
+
                     input(type="text", id="nombre", name="nombre", required)
                     label :Nombre
                     br
-                    br
                     
-                    input(type="number", id="cicloLectivo", name="cicloLectivo", required)
-                    label :Ciclo Lectivo
-                    br
+                    input(type="text", id="apellido", name="apellido", required)
+                    label :Apellido
                     br
                 
-                    input(type="date", id="fechaInicioCursada", name="fechaInicioCursada", value= `${fechahoy}`, required)
-                    label :Fecha Inicio Cursada
-                    br
+                    input(type="text", id="dni", name="dni", required)
+                    label :DNI
                     br
 
-                    input(type="date", id="fechaFinCursada", name="fechaFinCursada", value= `${fechahoy}`, required)
-                    label :Fecha Fin Cursada
-                    br
+                    input(type="email", id="eMail", name="eMail", required)
+                    label :Usuario *
                     br
                 
-                             
+                    input(type="password", id="pss", name="pss", required)
+                    label :Password 
+                                   
+                    p * Usuario: Debe ser un email!
+                    br
+                
                     input(class="boton", type="submit", value="Registrar")
 
                     br
                     br
+
+
+
 
                 form(id="formuIns")
 

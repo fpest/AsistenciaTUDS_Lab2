@@ -1,0 +1,148 @@
+
+extends layout
+block content
+
+    html 
+
+        head 
+        body
+
+                - materia = materia
+                - fechahoy = hoy
+                - gesthor = gestionhorarios
+                -luin = 8
+                -ludu = 0
+                -main = 8
+                -madu = 0
+                -miin = 8
+                -midu = 0
+                -juin = 8
+                -judu = 0
+                -viin = 8
+                -vidu = 0
+                each g in gesthor
+                    if (`${g.diaSemana}`=="Lunes")
+                        - luin = `${g.horaInicio}`
+                        - ludu = `${g.duracion}`
+                    if (`${g.diaSemana}`=="Martes")
+                        - main = `${g.horaInicio}`
+                        - madu = `${g.duracion}`
+                    if (`${g.diaSemana}`=="Miercoles")
+                        - miin = `${g.horaInicio}`
+                        - midu = `${g.duracion}`
+                    if (`${g.diaSemana}`=="Jueves")
+                        - juin = `${g.horaInicio}`
+                        - judu = `${g.duracion}`
+                    if (`${g.diaSemana}`=="Viernes")
+                        - viin = `${g.horaInicio}`
+                        - vidu = `${g.duracion}`
+
+
+               
+
+
+                if (mensaje)
+                    - mensajeRegistro = mensaje 
+                else 
+                    - mensajeRegistro = ""
+
+                
+
+                div(class='dropdown')
+                    button(class='dropbtn') Alumnos
+        
+                        div(class="dropdown-content")
+                            a(href='/materias/antesinsertar') Validar Registración
+                                 
+               
+                div(class='dropdown3')            
+                 button(class='dropbtn3') Informes
+                 
+                        div(class="dropdown-content3")
+                            a(href="#") Asistencias
+                
+                div(class='dropdown2')            
+                 button(class='dropbtn2') Salir
+                 
+                        div(class="dropdown-content2")
+                            a(href='/login/logout') Logout
+
+
+                 
+                        div(class="dropdown-content2")
+                            a(href='/profesores/principalprofesores') Volver
+                            a(href='/login/logout') Logout
+                           
+        Br
+        Br
+
+                H2 Gestión de Horarios (#{materia.nombre} - Ciclo Lectivo #{materia.cicloLectivo})
+                    
+               
+
+                form(action=`/materias/registroHorario/${materia.idMateria}`, method="post", id="formulario")
+                
+                    h3 Lunes
+                    label Inicio
+                    <input type="number" id="lunesinicio" name="lunesinicio" min="8" max="20" step="1" value=#{luin}>
+                    label hs. Duración
+                    <input type="number" id="lunesduracion" name="lunesduracion" min="0" max="5" step="1" value=#{ludu}>
+                    label hs
+                    br
+                    h3 Martes
+                    label Inicio
+                    <input type="number" id="martesinicio" name="martesinicio" min="8" max="20" step="1" value=#{main}>
+                    label hs. Duración
+                    <input type="number" id="martesduracion" name="martesduracion" min="0" max="5" step="1" value=#{madu}>
+                    label hs
+                    br
+                    h3 Miércoles
+                    label Inicio
+                    <input type="number" id="miercolesinicio" name="miercolesinicio" min="8" max="20" step="1" value=#{miin}>
+                    label hs. Duración
+                    <input type="number" id="miercolesduracion" name="miercolesduracion" min="0" max="5" step="1" value=#{midu}>
+                    label hs
+                    br
+                    h3 Jueves
+                    label Inicio
+                    <input type="number" id="juevesinicio" name="juevesinicio" min="8" max="20" step="1" value=#{juin}>
+                    label hs. Duración
+                    <input type="number" id="juevesduracion" name="juevesduracion" min="0" max="5" step="1" value=#{judu}>
+                    label hs
+                    br
+                    h3 Viernes
+                    label Inicio
+                    <input type="number" id="viernesinicio" name="viernesinicio" min="8" max="20" step="1" value=#{viin}>
+                    label hs. Duración
+                    <input type="number" id="viernesduracion" name="viernesduracion" min="0" max="5" step="1" value=#{vidu}>
+                    label hs
+                    br
+     
+                    input(class="boton", type="submit", value="Registrar")
+
+                    br
+                    br
+
+        
+
+        script.
+            function salirRegistro(){
+                console.log("salir")
+                const form = document.getElementById('formuIns');
+                form.setAttribute('method', 'get');
+                form.setAttribute('action','../coordinadores/principalCoordinadores');
+
+                form.submit();
+            }
+
+            function error(){
+                console.log("error")
+                alert("Error")
+            }
+
+            
+
+     
+           
+          
+    

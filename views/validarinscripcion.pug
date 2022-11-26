@@ -1,0 +1,126 @@
+
+extends layout
+block content
+
+    html 
+
+        head 
+        body
+
+        
+                - usuario = user
+                - alumnos = alumnos
+
+                
+                H2= `Bienvenido ${user.nombre} (${user.rol})` 
+
+
+                div(class='dropdown')
+                    button(class='dropbtn') Alumnos
+        
+                        div(class="dropdown-content")
+                            a(href='/cursa/validarinscripcion') Validar Inscripción
+                                 
+               
+                div(class='dropdown3')            
+                 button(class='dropbtn3') Informes
+                 
+                        div(class="dropdown-content3")
+                            a(href="#") Asistencias
+                
+                div(class='dropdown2')            
+                 button(class='dropbtn2') Salir
+                 
+                        div(class="dropdown-content2")
+                            a(href='/profesores/principalProfesores') Volver
+                            a(href='/login/logout') Logout
+
+
+       
+                Br
+                Br
+                H2 Validar Inscripciones
+                
+                H2 Lista de Solicitudes Pendientes
+                form(id="formuM")  
+                    table(id='myTable', border='1')     
+                        thead 
+                            tr
+                                th(style='width:80px') Legajo 
+                                th(style='width:120px') Nombre
+                                th(style='width:120px') Apellido
+                                th(style='width:100px') Materia
+                                th(style='width:80px') Periodo
+                                th(style='width:100px') Estado
+                                th(style='width:150px') Validar/No Validar
+                        tbody
+                          if (alumnos)      
+                            each a in alumnos
+                             if (`${a.estado}` == "pendiente")
+                                tr
+                                    td #{a.id}
+                                    td #{a.nombre}
+                                    td #{a.apellido}
+                                    td #{a.materia}
+                                    td #{a.periodo}
+                                    td #{a.estado}
+                                    td 
+                                        a(href=`/cursa/estadoinscripcion/${a.idMateria}/${a.id}/${a.estado}`)= "Inscripción"
+              
+                        br
+
+                H2 Lista de Solicitudes Aceptadas
+                form(id="formuM")  
+                    table(id='myTable', border='1') 
+                        thead
+                            tr
+                                th(style='width:80px') Legajo 
+                                th(style='width:120px') Nombre
+                                th(style='width:120px') Apellido
+                                th(style='width:100px') Materia
+                                th(style='width:80px') Periodo
+                                th(style='width:100px') Estado
+                                th(style='width:150px') Validar/No Validar
+                        tbody
+                          if (alumnos)      
+                            each a in alumnos
+                             if (`${a.estado}` == "aceptada")
+                                tr
+                                    td #{a.id}
+                                    td #{a.nombre}
+                                    td #{a.apellido}
+                                    td #{a.materia}
+                                    td #{a.periodo}
+                                    td #{a.estado}
+                                    td 
+                                       a(href=`/cursa/estadoinscripcion/${a.idMateria}/${a.id}/${a.estado}`)= "Inscripción"
+              
+                        br
+
+                H2 Lista de Solicitudes No Aceptadas
+                form(id="formuM")  
+                    table(id='myTable', border='1')     
+                        thead 
+                            tr
+                                th(style='width:80px') Legajo 
+                                th(style='width:120px') Nombre
+                                th(style='width:120px') Apellido
+                                th(style='width:100px') Materia
+                                th(style='width:80px') Periodo
+                                th(style='width:100px') Estado
+                                th(style='width:150px') Validar/No Validar
+                        tbody
+                          if (alumnos)      
+                            each a in alumnos
+                              if (`${a.estado}` == "no validado")
+                                tr
+                                    td #{a.id}
+                                    td #{a.nombre}
+                                    td #{a.apellido}
+                                    td #{a.materia}
+                                    td #{a.periodo}
+                                    td #{a.estado}
+                                    td 
+                                       a(href=`/cursa/estadoinscripcion/${a.idMateria}/${a.id}/${a.estado}`)= "Inscripción"
+              
+                        br

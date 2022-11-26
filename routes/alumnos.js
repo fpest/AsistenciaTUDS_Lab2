@@ -5,6 +5,7 @@ var alumnosController = require("../controllers/alumnos");
 
 
 router.get("/principalAlumnos", alumnosController.principalAlumnos)
+router.get(`/asistenciaalumno`, alumnosController.asistenciaalumno)
 
 
 

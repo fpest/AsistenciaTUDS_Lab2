@@ -19,6 +19,25 @@ function fechaHoy(){
   
   }
 
+  function diasemana(fechaComoCadena){
+console.log(fechaComoCadena)
+    const dias = [
+      'domingo',
+      'lunes',
+      'martes',
+      'miércoles',
+      'jueves',
+      'viernes',
+      'sábado',
+    ];
+    const numeroDia = new Date(fechaComoCadena).getDay();
+    const nombreDia = dias[numeroDia];
+ 
+    console.log("Nombre de día de la semana: ", nombreDia);
+   
+
+
+  }
 
   module.exports = fechaHoy;
   

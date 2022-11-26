@@ -35,9 +35,7 @@ exports.insertar = async function (req, res) {
     const usuario = req.body.eMail
     const salt = await bcrypt.genSalt(10);
     passwordEncriptada = await bcrypt.hash(req.body.pss, salt);
-    console.log(req.body.pss);
-    console.log(passwordEncriptada);
-    console.log(req.body.eMail)
+    
     const usuarioExistente = await Usuario.findOne({ where: { eMail: usuario }});
    
 

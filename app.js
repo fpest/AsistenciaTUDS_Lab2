@@ -17,6 +17,8 @@ var materiasRouter = require('./routes/materias');
 var coordinadoresRouter = require('./routes/coordinadores');
 var alumnosRouter = require('./routes/alumnos');
 var profesoresRouter = require('./routes/profesores');
+var dictaRouter = require('./routes/dicta');
+var cursaRouter = require('./routes/cursa');
 
 var isAuthenticated = require("./middleware/autenticar");
 
@@ -42,13 +44,15 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.use('/', indexRouter);
-
+ 
 app.use('/login', loginRouter);
 app.use('/usuarios', usuariosRouter);
 app.use('/materias', materiasRouter);
 app.use('/coordinadores', coordinadoresRouter);
 app.use('/alumnos', alumnosRouter);
 app.use('/profesores', profesoresRouter);
+app.use('/dicta', dictaRouter);
+app.use('/cursa', cursaRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

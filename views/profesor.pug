@@ -19,14 +19,9 @@ block content
                     button(class='dropbtn') Alumnos
         
                         div(class="dropdown-content")
-                            a(href='/materias/antesinsertar') Validar Registración
+                            a(href='/cursa/validarinscripcion') Validar Inscripción
                                  
-                div(class='dropdown1')            
-                 button(class='dropbtn1') Materias
-                 
-                        div(class="dropdown-content1")
-                            a(href="#") Gestionar Horarios
-                     
+               
                 div(class='dropdown3')            
                  button(class='dropbtn3') Informes
                  
@@ -43,29 +38,7 @@ block content
        
                 Br
                 Br
-                H2 Alumnos
-                form(id="formuP")  
-                    table(id='myTable', border='1')     
-                        thead 
-                            tr
-                                th(style='width:80px') Legajo
-                                th(style='width:250px') Nombre 
-                                th(style='width:100px') DNI
-                                th(style='width:250px') eMail 
-                                th(style='width:80px') Editar
-                        tbody
-                          if (listaP)      
-                            each p in listaP
-                                tr
-                                    td #{p.legajo}
-                                    td #{p.apellido+", "+p.nombre}
-                                    td #{p.dni}
-                                    td #{p.eMail}
-                                    td 
-                                        a(href=`/items/editar/${p.id}`)= "Editar"  
-                        br
-
-                H2 Materias
+                H2 Materias a Cargo
                 form(id="formuM")  
                     table(id='myTable', border='1')     
                         thead 
@@ -74,7 +47,9 @@ block content
                                 th(style='width:100px') C.Lectivo
                                 th(style='width:120px') F.Inicio
                                 th(style='width:120px') F.Fin
-                                th(style='width:80px') Editar
+                                th(style='width:150px') Gestión Horarios
+                                th(style='width:100px') Calendario
+                                
                         tbody
                           if (listaM)      
                             each m in listaM
@@ -84,7 +59,9 @@ block content
                                     td #{m.fechaInicioCursada}
                                     td #{m.fechaFinCursada}
                                     td 
-                                        a(href=`/items/editar/${m.idMateria}`)= "Editar"  
+                                        a(href=`/materias/gestionHorario/${m.idMateria}`)= "Editar" 
+                                    td 
+                                        a(href=`/materias/calendarioprofesor/${m.idMateria}`)= "Calendario"      
                         br
 
 

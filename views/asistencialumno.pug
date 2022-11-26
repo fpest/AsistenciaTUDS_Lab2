@@ -9,7 +9,6 @@ block content
 
               
                 - listaM = materias    
-                - listaMM = mismaterias
                 - usuario = user
 
 
@@ -32,7 +31,7 @@ block content
                  button(class='dropbtn3') Asistencia
                  
                         div(class="dropdown-content3")
-                            a(href='/alumnos/asistenciaalumno') Registrar Asistencia
+                            a(href=href='/alumnos/asistenciaalumno') Registrar Asistencia
                 
                 div(class='dropdown2')            
                  button(class='dropbtn2') Salir
@@ -45,31 +44,7 @@ block content
                 Br
                 Br
          
-                H2 Mis Materias
-                form(id="formuMM")  
-                    table(id='myTable', border='1')     
-                        thead 
-                            tr
-                                th(style='width:250px') Materia 
-                                th(style='width:100px') C.Lectivo
-                                th(style='width:120px') F.Inicio
-                                th(style='width:120px') F.Fin
-                         
-                        tbody
-                          if (listaMM)      
-                            each mm in listaMM
-                                tr
-                                    td #{mm.nombre}
-                                    td #{mm.cicloLectivo}
-                                    td #{mm.fechaInicioCursada}
-                                    td #{mm.fechaFinCursada}
-              
-                        br
-
-
-
-
-                H2 Materias
+                H2 Asistencia
                 form(id="formuM")  
                     table(id='myTable', border='1')     
                         thead 

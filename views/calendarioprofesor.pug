@@ -1,0 +1,76 @@
+
+extends layout
+block content
+
+    html 
+
+        head 
+        body
+                - materia = materia
+                - fechahoy = hoy
+                - cal = calendario
+
+                if (mensaje)
+                    - mensajeRegistro = mensaje 
+                else 
+                    - mensajeRegistro = ""
+
+                
+
+                div(class='dropdown')
+                    button(class='dropbtn') Alumnos
+        
+                        div(class="dropdown-content")
+                            a(href='/materias/antesinsertar') Validar Registración
+                                 
+               
+                div(class='dropdown3')            
+                 button(class='dropbtn3') Informes
+                 
+                        div(class="dropdown-content3")
+                            a(href="#") Asistencias
+                
+                div(class='dropdown2')            
+                 button(class='dropbtn2') Salir
+                 
+                        div(class="dropdown-content2")
+                            a(href='/login/logout') Logout
+
+
+                 
+                        div(class="dropdown-content2")
+                            a(href='/profesores/principalprofesores') Volver
+                            a(href='/login/logout') Logout
+                           
+        Br
+        Br
+
+                H2 Calendario (#{materia.nombre} - Ciclo Lectivo #{materia.cicloLectivo})
+
+                form(id="formuM")  
+                    table(id='myTable', border='1')     
+                        thead 
+                            tr
+                                th(style='width:100px') D. Semana 
+                                th(style='width:100px') Fecha
+                                th(style='width:100px') Hora Inicio
+                                th(style='width:100px') Hora Fin
+                                th(style='width:80px') Se Dicta
+                                th(style='width:150px') Dicta Si/No
+                        tbody
+                          if (cal)      
+                            each c in cal
+                                tr
+                                    td #{c.diasemana}
+                                    td #{c.diaHoraInicio}
+                                    td #{c.horainicio}
+                                    td #{c.horafin}
+                                    td 
+                                        if `${c.seDicta}`=="true"
+                                            - chek = true
+                                        else 
+                                            - chek = false                                              
+                                        input(type="checkbox" checked= chek disabled)
+                                    td
+                                        a(href=`/materias/dicta/${c.id}/${c.seDicta}`)= "Se Dicta/No se Dicta"  
+                        br

@@ -2,7 +2,7 @@
 const { Model, DataTypes } = require("sequelize");
 module.exports = (sequelize, DataTypes) =>{
 
-class GestionHorario extends Model {
+class Horarioview extends Model {
 
 /*
   static associate(models) {
@@ -11,30 +11,45 @@ class GestionHorario extends Model {
 */
 }
 
-GestionHorario.init(
+Horarioview.init(
     {
     id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
           },
+    diaHoraInicio: {
+        type: DataTypes.DATE,
+    },
+    duracion: {
+      type: DataTypes.DOUBLE,
+    },
+    seDicta: {
+        type: DataTypes.BOOLEAN,
+      },
     idMateria: {
         type: DataTypes.INTEGER,
       },
-    diaSemana: {
-          type: DataTypes.STRING,
+    idDicta: {
+          type: DataTypes.INTEGER,
       },
-    horaInicio: {
+    periodoMateria: {
         type: DataTypes.INTEGER,
-    },
-      duracion: {
+      },
+    diasemana: {
+        type: DataTypes.STRING,
+      },
+    horainicio: {
         type: DataTypes.INTEGER,
-      }
+      },
+    horafin: {
+        type: DataTypes.INTEGER,
+      }        
     },{    
       sequelize,
       timestamp : true,
       createdAt: false,
       updatedAt: false,
-      modelName: "GestionHorario"});
-return GestionHorario;
+      modelName: "Horarioview"});
+return Horarioview;
 };
